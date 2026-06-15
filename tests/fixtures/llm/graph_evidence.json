@@ -1,0 +1,24 @@
+{
+  "vuln_001": {
+    "slice": [
+      {"id": "n1", "type": "PARAM", "code": "int n", "line": 10},
+      {"id": "n2", "type": "CALL", "code": "memcpy(buf, src, n)", "line": 12},
+      {"id": "n3", "type": "CALL", "code": "strcpy(dst, buf)", "line": 13}
+    ],
+    "data_flow": [
+      {"from": "n1", "to": "n2", "kind": "DDG", "var": "n"}
+    ],
+    "sinks": ["memcpy", "strcpy"]
+  },
+  "tie_beta": {
+    "slice": [
+      {"id": "m1", "type": "CALL", "code": "p = malloc(64)", "line": 2},
+      {"id": "m2", "type": "CALL", "code": "free(p)", "line": 4},
+      {"id": "m3", "type": "RETURN", "code": "return n", "line": 5}
+    ],
+    "data_flow": [
+      {"from": "m1", "to": "m2", "kind": "DDG", "var": "p"}
+    ],
+    "sinks": ["free"]
+  }
+}

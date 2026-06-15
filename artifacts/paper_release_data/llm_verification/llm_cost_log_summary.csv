@@ -1,0 +1,5 @@
+Dataset,API_Calls,Successful,Failed,Cost_USD
+devign,50,50,0,0.037
+bigvul,50,50,0,0.039
+diversevul,50,50,0,0.049
+Total,150,150,0,0.125

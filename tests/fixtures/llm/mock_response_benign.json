@@ -1,0 +1,11 @@
+{
+  "sample_id": "benign_002",
+  "verdict": "benign",
+  "confidence": 0.84,
+  "predicted_cwe": "",
+  "vulnerable_lines": [],
+  "evidence": [],
+  "need_more_context": false,
+  "missing_context": [],
+  "patch_hint": ""
+}

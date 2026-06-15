@@ -1,0 +1,5 @@
+component,samples,cost_per_sample_usd,total_cost_usd,time_minutes
+codeql,3000,0.0000,0.00,5
+ranker,3000,0.0000,0.00,2
+llm_deepseek,150,0.0008,0.125,10
+total,3000,0.0000,0.125,17

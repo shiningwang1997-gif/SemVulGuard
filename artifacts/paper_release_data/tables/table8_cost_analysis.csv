@@ -1,0 +1,5 @@
+Component,Operation,Samples,Cost_per_Sample_USD,Total_Cost_USD,Time_Minutes
+CodeQL,Static analysis,3000,0.0,0.0,5
+Ranker,Feature extraction + inference,3000,0.0,0.0,2
+LLM,DeepSeek API (top-50 × 3 datasets),150,0.0008,0.125,10
+Total,End-to-end pipeline,3000,-,0.125,17

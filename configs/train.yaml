@@ -1,0 +1,20 @@
+# Representation encoder + ranker training configuration.
+train:
+  encoder:
+    seq_backbone: graphcodebert
+    max_seq_len: 512
+    graph_layers: 3
+    graph_hidden_dim: 256
+    graph_heads: 8
+    dropout: 0.1
+  ranker:
+    hidden_dim: 128
+    topk_per_repo: 20
+  optim:
+    encoder_lr: 2.0e-5
+    head_lr: 1.0e-3
+    batch_size: 8
+    epochs: 10
+    loss: focal
+  seed: 42
+  output_dir: artifacts/models

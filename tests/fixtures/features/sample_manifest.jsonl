@@ -1,0 +1,2 @@
+{"sample_id": "s1", "dataset": "diversevul", "language": "c", "repo": "openssl", "commit_before": "abc123", "commit_after": null, "file": "a.c", "function": "foo", "span": {"file": "a.c", "start_line": 1, "end_line": 10}, "label": 1, "cwe": ["CWE-416"], "split": "train"}
+{"sample_id": "s2", "dataset": "diversevul", "language": "c", "repo": "curl", "commit_before": null, "commit_after": null, "file": "b.c", "function": "bar", "span": {"file": "b.c", "start_line": 1, "end_line": 5}, "label": 0, "cwe": [], "split": "test"}

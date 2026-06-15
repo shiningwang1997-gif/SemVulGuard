@@ -1,0 +1,5 @@
+Dataset,API_Calls,Vulnerable,Benign,Uncertain,Total
+devign,50,14,23,13,50
+bigvul,50,8,33,9,50
+diversevul,50,7,31,12,50
+Total,150,29,87,34,150

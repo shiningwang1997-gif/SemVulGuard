@@ -1,0 +1,17 @@
+flowchart TD
+    A[Code Sample/Function] --> B[Static Analysis<br/>CodeQL]
+    A --> C[Feature Extraction]
+    B --> C
+    C --> D[Code Representation<br/>Ranker<br/>PRIMARY COMPONENT]
+    D --> E[Ranked List<br/>All Samples]
+    E --> F[Top-K Selection<br/>k=50]
+    E --> G[Whole-Corpus<br/>Classification]
+    F --> H[LLM Semantic<br/>Verification<br/>OPTIONAL]
+    H --> I[Evidence<br/>Aggregation/<br/>Fusion]
+    D --> I
+    I --> J[Vulnerability Report]
+    G --> J
+
+    style D fill:#e1f5ff,stroke:#0066cc,stroke-width:3px
+    style H fill:#fff4e1,stroke:#ff9900,stroke-width:2px
+    style E fill:#e8f5e9,stroke:#4caf50,stroke-width:2px

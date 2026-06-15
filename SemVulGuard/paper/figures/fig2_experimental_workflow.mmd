@@ -1,0 +1,15 @@
+flowchart TD
+    A[Three Datasets<br/>Devign, BigVul, DiverseVul] --> B[Stratified Split<br/>70% Train / 10% Valid / 20% Test]
+    B --> C[Train Ranker<br/>on Train Split]
+    C --> D[Test-Only Evaluation<br/>Held-Out Test Set]
+    D --> E[Ranker Baseline<br/>Whole-Corpus Metrics]
+    D --> F[Top-50 Selection<br/>per Dataset]
+    F --> G[Real DeepSeek API<br/>Verification]
+    G --> H[Top-K Candidate<br/>Precision Analysis]
+    H --> I[Calibrated Fusion<br/>Sensitivity Analysis]
+    E --> J[Final Results]
+    I --> J
+
+    style D fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style G fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style I fill:#fff9c4,stroke:#f9a825,stroke-width:2px

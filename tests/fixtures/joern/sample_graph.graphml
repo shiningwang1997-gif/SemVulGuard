@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key id="d_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="d_code" for="node" attr.name="code" attr.type="string"/>
+  <key id="d_file" for="node" attr.name="filename" attr.type="string"/>
+  <key id="d_line" for="node" attr.name="lineNumber" attr.type="int"/>
+  <key id="d_func" for="node" attr.name="method" attr.type="string"/>
+  <key id="e_label" for="edge" attr.name="label" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <node id="1">
+      <data key="d_label">METHOD</data>
+      <data key="d_code">int foo()</data>
+      <data key="d_file">a.c</data>
+      <data key="d_line">1</data>
+      <data key="d_func">foo</data>
+    </node>
+    <node id="2">
+      <data key="d_label">CALL</data>
+      <data key="d_code">free(p)</data>
+      <data key="d_file">a.c</data>
+      <data key="d_line">20</data>
+      <data key="d_func">foo</data>
+    </node>
+    <node id="3">
+      <data key="d_label">CALL</data>
+      <data key="d_code">use(p)</data>
+      <data key="d_file">a.c</data>
+      <data key="d_line">25</data>
+      <data key="d_func">foo</data>
+    </node>
+    <edge source="1" target="2">
+      <data key="e_label">AST</data>
+    </edge>
+    <edge source="2" target="3" label="DDG"/>
+  </graph>
+</graphml>

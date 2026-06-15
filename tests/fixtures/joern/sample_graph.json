@@ -1,0 +1,17 @@
+{
+  "nodes": [
+    {"id": "1", "type": "METHOD", "code": "int foo()", "file": "a.c", "line": 1, "function": "foo", "properties": {}},
+    {"id": "2", "type": "CALL", "code": "p = malloc(n)", "file": "a.c", "line": 10, "function": "foo", "properties": {}},
+    {"id": "3", "type": "CALL", "code": "free(p)", "file": "a.c", "line": 20, "function": "foo", "properties": {}},
+    {"id": "4", "type": "CALL", "code": "use(p)", "file": "a.c", "line": 25, "function": "foo", "properties": {}},
+    {"id": "5", "type": "METHOD", "code": "int bar()", "file": "a.c", "line": 100, "function": "bar", "properties": {}},
+    {"id": "6", "type": "IDENTIFIER", "code": "p", "file": "b.c", "line": 5, "function": "baz", "properties": {}}
+  ],
+  "edges": [
+    {"source": "1", "target": "2", "type": "AST", "properties": {}},
+    {"source": "2", "target": "3", "type": "CFG", "properties": {}},
+    {"source": "3", "target": "4", "type": "DDG", "properties": {}},
+    {"source": "4", "target": "5", "type": "CFG", "properties": {}},
+    {"source": "3", "target": "6", "type": "AST", "properties": {}}
+  ]
+}

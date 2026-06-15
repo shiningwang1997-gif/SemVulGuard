@@ -1,0 +1,5 @@
+{"sample_id": "ev_001", "verdict": "vulnerable", "confidence": 0.93, "predicted_cwe": "CWE-119", "vulnerable_lines": [12, 13], "evidence": [], "need_more_context": false, "missing_context": [], "patch_hint": "bound the copy"}
+{"sample_id": "ev_002", "verdict": "benign", "confidence": 0.88, "predicted_cwe": "", "vulnerable_lines": [], "evidence": [], "need_more_context": false, "missing_context": [], "patch_hint": ""}
+{"sample_id": "ev_003", "verdict": "vulnerable", "confidence": 0.81, "predicted_cwe": "CWE-416", "vulnerable_lines": [5], "evidence": [], "need_more_context": false, "missing_context": [], "patch_hint": "no use after free"}
+{"sample_id": "ev_004", "verdict": "uncertain", "confidence": 0.55, "predicted_cwe": "", "vulnerable_lines": [], "evidence": [], "need_more_context": true, "missing_context": ["caller bounds"], "patch_hint": ""}
+{"sample_id": "ev_005", "verdict": "uncertain", "confidence": 0.50, "predicted_cwe": "CWE-78", "vulnerable_lines": [8], "evidence": [], "need_more_context": true, "missing_context": [], "patch_hint": ""}

@@ -1,0 +1,121 @@
+"""Tests for the evaluation CLI end-to-end."""
+
+from __future__ import annotations
+
+import csv
+import json
+from pathlib import Path
+
+from semvulguard.eval.run import evaluate
+from semvulguard.eval.run import main as eval_main
+
+
+def _eval_dir(fixtures_dir: Path) -> Path:
+    return fixtures_dir / "eval"
+
+
+def _args(fixtures_dir: Path, out_dir: Path) -> list[str]:
+    d = _eval_dir(fixtures_dir)
+    return [
+        "--features",
+        str(d / "features.jsonl"),
+        "--findings",
+        str(d / "findings.jsonl"),
+        "--rank-scores",
+        str(d / "rank_scores.jsonl"),
+        "--ground-truth-lines",
+        str(d / "ground_truth_lines.jsonl"),
+        "--cost-log",
+        str(d / "cost_log.jsonl"),
+        "--output-dir",
+        str(out_dir),
+        "--threshold",
+        "0.5",
+    ]
+
+
+def test_cli_writes_all_files(fixtures_dir: Path, tmp_path: Path, capsys):
+    out_dir = tmp_path / "eval"
+    rc = eval_main(_args(fixtures_dir, out_dir))
+    assert rc == 0
+    for name in (
+        "metrics.json",
+        "classification_metrics.json",
+        "ranking_metrics.json",
+        "localization_metrics.json",
+        "cost_metrics.json",
+        "summary.csv",
+        "evaluation_summary.md",
+    ):
+        assert (out_dir / name).exists(), name
+    assert "evaluated 5 samples" in capsys.readouterr().out
+
+
+def test_cli_classification_values(fixtures_dir: Path, tmp_path: Path):
+    out_dir = tmp_path / "eval"
+    eval_main(_args(fixtures_dir, out_dir))
+    cls = json.loads((out_dir / "classification_metrics.json").read_text())
+    # Labels: ev_001=1, ev_002=0, ev_003=1, ev_004=0, ev_005=1.
+    # Confidences: .90,.10,.70,.35,.40 ; threshold .5 -> preds 1,0,1,0,0.
+    # tp=2 (001,003), fn=1 (005), tn=2, fp=0.
+    assert cls["confusion_matrix"] == {"tp": 2, "fp": 0, "tn": 2, "fn": 1}
+    assert cls["precision"] == 1.0
+
+
+def test_cli_ranking_uses_rank_scores(fixtures_dir: Path, tmp_path: Path):
+    out_dir = tmp_path / "eval"
+    eval_main(_args(fixtures_dir, out_dir))
+    ranking = json.loads((out_dir / "ranking_metrics.json").read_text())
+    # Top-3 by rank score are the three positives -> recall@3 = 1.0, mrr = 1.0.
+    assert ranking["recall_at_5"] == 1.0
+    assert ranking["mrr"] == 1.0
+    assert 0.0 <= ranking["ndcg_at_5"] <= 1.0
+
+
+def test_cli_localization_present(fixtures_dir: Path, tmp_path: Path):
+    out_dir = tmp_path / "eval"
+    eval_main(_args(fixtures_dir, out_dir))
+    loc = json.loads((out_dir / "localization_metrics.json").read_text())
+    assert loc["num_samples"] == 3
+    assert 0.0 <= loc["mean_iou"] <= 1.0
+    assert "top1_hit_rate" in loc
+
+
+def test_cli_cost_present(fixtures_dir: Path, tmp_path: Path):
+    out_dir = tmp_path / "eval"
+    eval_main(_args(fixtures_dir, out_dir))
+    cost = json.loads((out_dir / "cost_metrics.json").read_text())
+    assert cost["samples_count"] == 5
+    assert cost["total_tokens"] > 0
+
+
+def test_cli_summary_csv_has_header_and_rows(fixtures_dir: Path, tmp_path: Path):
+    out_dir = tmp_path / "eval"
+    eval_main(_args(fixtures_dir, out_dir))
+    with (out_dir / "summary.csv").open() as fh:
+        rows = list(csv.reader(fh))
+    assert rows[0] == ["metric", "value"]
+    keys = {r[0] for r in rows[1:]}
+    assert any(k.startswith("classification.") for k in keys)
+    assert any(k.startswith("ranking.") for k in keys)
+
+
+def test_evaluate_without_optional_inputs(fixtures_dir: Path):
+    d = _eval_dir(fixtures_dir)
+    metrics = evaluate(
+        features_path=d / "features.jsonl",
+        findings_path=d / "findings.jsonl",
+    )
+    assert metrics["localization"] is None
+    assert metrics["cost"] is None
+    assert metrics["classification"]["support"] == 5
+
+
+def test_cli_is_deterministic(fixtures_dir: Path, tmp_path: Path):
+    out1 = tmp_path / "a"
+    out2 = tmp_path / "b"
+    eval_main(_args(fixtures_dir, out1))
+    eval_main(_args(fixtures_dir, out2))
+    assert (out1 / "metrics.json").read_text() == (
+        out2 / "metrics.json"
+    ).read_text()

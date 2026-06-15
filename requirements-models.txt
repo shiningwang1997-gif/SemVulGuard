@@ -1,0 +1,19 @@
+# Model (encoder + ranker) dependencies for SemVulGuard.
+#
+# Required only to train or run the code-representation encoder and the
+# candidate ranker (semvulguard.models.*). The rest of the pipeline runs without
+# these. Mirrors the [project.optional-dependencies].models extra in pyproject.toml.
+#
+# transformers / torch_geometric are imported lazily and the encoders degrade to
+# dependency-light fallback modes when they are absent; install them only if you
+# want HuggingFace sequence encoding (GraphCodeBERT) or GATv2 graph encoding.
+#
+# Install with:  pip install -r requirements.txt -r requirements-models.txt
+
+-r requirements.txt
+
+torch>=2.0
+
+# Optional encoder backends (uncomment to enable; otherwise fallback modes run):
+# transformers>=4.30
+# torch_geometric>=2.4

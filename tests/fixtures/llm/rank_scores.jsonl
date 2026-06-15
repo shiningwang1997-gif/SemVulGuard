@@ -1,0 +1,5 @@
+{"sample_id": "vuln_001", "rank_score": 0.95, "rank": 1, "label": 1, "metadata": {}}
+{"sample_id": "tie_beta", "rank_score": 0.80, "rank": 2, "label": 1, "metadata": {}}
+{"sample_id": "tie_alpha", "rank_score": 0.80, "rank": 3, "label": 1, "metadata": {}}
+{"sample_id": "guarded_003", "rank_score": 0.60, "rank": 4, "label": 0, "metadata": {}}
+{"sample_id": "benign_002", "rank_score": 0.10, "rank": 5, "label": 0, "metadata": {}}

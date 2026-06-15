@@ -1,0 +1,21 @@
+id,project,commit_id,func_before,func_after,vulnerable,cwe,file,function_name
+100,linux,f00d01,"int read_pkt(struct sk_buff *skb) {
+    int len = skb->len;
+    char buf[64];
+    memcpy(buf, skb->data, len); // overflow
+    return 0;
+}","int read_pkt(struct sk_buff *skb) {
+    int len = min(skb->len, 64);
+    char buf[64];
+    memcpy(buf, skb->data, len);
+    return 0;
+}",1,CWE-787,net/core/skbuff.c,read_pkt
+101,linux,f00d02,"static int get_flag(void) {
+    return 0;
+}","static int get_flag(void) {
+    return 0;
+}",0,,kernel/flag.c,get_flag
+102,linux,f00d03,"static int get_flag(void) {
+    // trivial accessor
+    return 0;
+}",,0,,kernel/flag_copy.c,get_flag

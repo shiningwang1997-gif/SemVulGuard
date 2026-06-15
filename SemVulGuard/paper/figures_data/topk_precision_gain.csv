@@ -1,0 +1,10 @@
+dataset,k,ranker_precision,llm_filtered_precision,precision_gain
+devign,10,0.8000,1.0000,0.2000
+devign,30,0.7000,0.5000,-0.2000
+devign,50,0.6400,0.5714,-0.0686
+bigvul,10,0.4000,0.5000,0.1000
+bigvul,30,0.2667,0.7500,0.4833
+bigvul,50,0.2200,0.5000,0.2800
+diversevul,10,0.3000,0.5000,0.2000
+diversevul,30,0.2333,0.3750,0.1417
+diversevul,50,0.2000,0.4000,0.2000

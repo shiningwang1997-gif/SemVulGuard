@@ -1,0 +1,12 @@
+# Dataset & labeling pipeline configuration.
+dataset:
+  # Primary training set plus comparison/diagnostic sets (see frameReport.md).
+  name: diversevul
+  languages: [c, cpp]
+  raw_dir: data/raw
+  manifest_path: artifacts/sample_manifest.jsonl
+  splits:
+    train: 0.8
+    valid: 0.1
+    test: 0.1
+  seed: 42

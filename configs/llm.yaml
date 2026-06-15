@@ -1,0 +1,13 @@
+# DeepSeek-based LLM semantic verifier configuration.
+llm:
+  provider: deepseek
+  # Two-tier verification (see frameReport.md).
+  fast_model: deepseek-v4-flash
+  precise_model: deepseek-v4-pro
+  base_url: https://api.deepseek.com
+  response_format: json_object
+  temperature: 0.1
+  patch_temperature: 0.3
+  max_tokens: 4096
+  topk_input: artifacts/topk_manifest.jsonl
+  verdicts_output: artifacts/llm_verdicts.jsonl

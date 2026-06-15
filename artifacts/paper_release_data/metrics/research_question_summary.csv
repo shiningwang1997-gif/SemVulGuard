@@ -1,0 +1,6 @@
+RQ,Question,Support_Level,Primary_Evidence
+RQ1,Ranker effectiveness?,Supported,"Table 2, Table 5 (top-k precision)"
+RQ2,Static evidence utility?,Partial,Table 3 (sparse but valid)
+RQ3,LLM top-k verification?,Partial,Table 5 (dataset-dependent)
+RQ4,Cost-effectiveness?,Supported,"Table 4, Table 8 ($0.125 total)"
+RQ5,Fusion whole-corpus improvement?,Not supported,Table 6 (+0.002 F1)

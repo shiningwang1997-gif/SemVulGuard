@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {"id": "1", "type": "METHOD", "code": "int foo()", "file": "a.c", "line": 1, "function": "foo", "properties": {}},
+    {"id": "2", "type": "CALL", "code": "n = read(fd, buf, 64)", "file": "a.c", "line": 4, "function": "foo", "properties": {}},
+    {"id": "3", "type": "CALL", "code": "free(p)", "file": "a.c", "line": 5, "function": "foo", "properties": {}},
+    {"id": "4", "type": "CALL", "code": "use(p)", "file": "a.c", "line": 6, "function": "foo", "properties": {}}
+  ],
+  "edges": [
+    {"source": "1", "target": "2", "type": "AST", "properties": {}},
+    {"source": "2", "target": "3", "type": "CFG", "properties": {}},
+    {"source": "3", "target": "4", "type": "DDG", "properties": {}}
+  ]
+}

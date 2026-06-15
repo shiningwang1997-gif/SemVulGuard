@@ -1,0 +1,4 @@
+{"idx": 0, "project": "FFmpeg", "commit_id": "aaa111", "target": 1, "func": "int decode(AVFrame *f) {\n    int n = get_bits(f);\n    memcpy(buf, f->data, n);\n    return n;\n}", "file": "libavcodec/decode.c", "cwe": ["CWE-119"], "split": "train"}
+{"idx": 1, "project": "FFmpeg", "commit_id": "bbb222", "target": 0, "func": "int safe_add(int a, int b) {\n    return a + b;\n}", "file": "libavutil/math.c", "split": "valid"}
+{"idx": 2, "project": "qemu", "commit_id": "ccc333", "target": 0, "function": "void noop(void) {\n    return;\n}", "file": "hw/noop.c"}
+{"project": "qemu", "commit_id": "ddd444", "target": 1, "func": "void copy_loop(char *dst, char *src, int n) {\n    for (int i = 0; i <= n; i++) dst[i] = src[i];\n}", "file": "hw/copy.c", "cwe": "CWE-787"}

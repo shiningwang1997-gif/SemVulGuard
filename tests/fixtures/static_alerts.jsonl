@@ -1,0 +1,2 @@
+{"sample_id": "diversevul_000123", "tool": "codeql", "query_id": "cpp/potential-use-after-free", "message": "Potential use-after-free", "severity": "high", "file": "ssl/s3_pkt.c", "start_line": 145, "end_line": 146, "cwe": ["CWE-416"], "trace_lines": [132, 140, 145, 146], "raw": null}
+{"sample_id": "diversevul_000123", "tool": "joern", "query_id": "joern/taint-reaches-sink", "message": "Tainted value reaches memcpy", "severity": "medium", "file": "ssl/s3_pkt.c", "start_line": 145, "end_line": 145, "cwe": ["CWE-119"], "trace_lines": [132, 140, 145], "raw": {"sink": "memcpy"}}

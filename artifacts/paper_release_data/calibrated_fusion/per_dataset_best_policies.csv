@@ -1,0 +1,4 @@
+policy,f1,mcc,precision,recall,tp,fp,tn,fn,dataset
+policy_a,0.5573,0.1708,0.5451,0.5702,260,217,327,196,devign
+policy_a,0.2044,0.1509,0.1728,0.25,14,67,877,42,bigvul
+policy_a,0.2609,0.213,0.2019,0.3684,21,83,860,36,diversevul

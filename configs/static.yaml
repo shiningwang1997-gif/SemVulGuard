@@ -1,0 +1,16 @@
+# Static analysis orchestrator configuration.
+static:
+  backends: [codeql, joern, clang]
+  output_dir: artifacts/static
+  codeql:
+    query_suites: [code-scanning, security-extended]
+    threads: 8
+    ram_mb: 32768
+    output_format: sarif
+  joern:
+    graphs: [cpg, pdg, cfg]
+    slice_hops: 2
+    max_nodes: 400
+    max_edges: 2000
+  clang:
+    context_lines: 3

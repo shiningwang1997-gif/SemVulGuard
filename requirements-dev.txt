@@ -1,0 +1,9 @@
+# Development dependencies for SemVulGuard (tests + linting).
+# Mirrors the [project.optional-dependencies].dev extra in pyproject.toml.
+#
+# Install with:  pip install -r requirements-dev.txt
+
+-r requirements.txt
+
+pytest>=7
+ruff>=0.4

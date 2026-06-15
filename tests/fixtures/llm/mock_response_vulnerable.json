@@ -1,0 +1,14 @@
+{
+  "sample_id": "vuln_001",
+  "verdict": "vulnerable",
+  "confidence": 0.93,
+  "predicted_cwe": "CWE-119",
+  "vulnerable_lines": [12, 13],
+  "evidence": [
+    {"kind": "llm_reasoning", "lines": [12], "note": "n is unbounded; memcpy into 64-byte buf can overflow"},
+    {"kind": "llm_reasoning", "lines": [13], "note": "strcpy into dst with no bound"}
+  ],
+  "need_more_context": false,
+  "missing_context": [],
+  "patch_hint": "Bound n by sizeof(buf) and use strncpy/snprintf with an explicit limit."
+}

@@ -1,0 +1,1 @@
+{"sample_id": "s1", "tool": "codeql", "query_id": "cpp/use-after-free", "message": "Use after free", "severity": "high", "file": "a.c", "start_line": 5, "end_line": 6, "cwe": ["CWE-416"], "trace_lines": [3, 5], "raw": null}

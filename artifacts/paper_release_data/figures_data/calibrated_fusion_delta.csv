@@ -1,0 +1,7 @@
+dataset,metric,best_policy,ranker_only,delta
+devign,f1,0.5573,0.5573,-0.0000
+devign,mcc,0.1708,0.1708,0.0000
+bigvul,f1,0.2044,0.2000,0.0044
+bigvul,mcc,0.1509,0.1451,0.0058
+diversevul,f1,0.2609,0.2593,0.0016
+diversevul,mcc,0.2130,0.2113,0.0017

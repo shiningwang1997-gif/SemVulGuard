@@ -1,0 +1,2 @@
+{"sample_id": "diversevul_000123", "verdict": "vulnerable", "confidence": 0.91, "predicted_cwe": "CWE-416", "vulnerable_lines": [145, 146], "evidence": [{"kind": "llm_reasoning", "lines": [145, 146]}], "need_more_context": false, "missing_context": [], "patch_hint": "Move free after final use or null-check/reset pointer."}
+{"sample_id": "diversevul_000124", "verdict": "benign", "confidence": 0.78, "predicted_cwe": "", "vulnerable_lines": [], "evidence": [], "need_more_context": false, "missing_context": [], "patch_hint": ""}

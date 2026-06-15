@@ -1,0 +1,5 @@
+Component,Samples,Cost_USD,Time_Minutes
+CodeQL,3000,0.0,5
+Ranker,3000,0.0,2
+LLM_DeepSeek,150,0.125,10
+Total,3000,0.125,17

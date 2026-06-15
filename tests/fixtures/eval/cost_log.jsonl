@@ -1,0 +1,5 @@
+{"sample_id": "ev_001", "model": "deepseek-v4-flash", "prompt_tokens": 1200, "completion_tokens": 180, "total_tokens": 1380, "latency_seconds": 2.1, "api_cost_usd": 0.0021}
+{"sample_id": "ev_002", "model": "deepseek-v4-flash", "prompt_tokens": 800, "completion_tokens": 90, "total_tokens": 890, "latency_seconds": 1.4, "api_cost_usd": 0.0013}
+{"sample_id": "ev_003", "model": "deepseek-v4-flash", "prompt_tokens": 1500, "completion_tokens": 220, "total_tokens": 1720, "latency_seconds": 3.5, "api_cost_usd": 0.0026}
+{"sample_id": "ev_004", "model": "deepseek-v4-flash", "prompt_tokens": 950, "completion_tokens": 110, "latency_seconds": 1.8, "api_cost_usd": 0.0015}
+{"sample_id": "ev_005", "model": "deepseek-v4-flash", "prompt_tokens": 1100, "completion_tokens": 130, "total_tokens": 1230, "latency_seconds": 2.0}

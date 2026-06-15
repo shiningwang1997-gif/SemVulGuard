@@ -1,0 +1,4 @@
+Dataset,Total_Samples,Train,Valid,Test,Vulnerable_Percent_Test,Source
+Devign,5000,3500,500,1000,45.6%,Function-level C/C++
+BigVul,5000,3500,500,1000,5.6%,Function-level C/C++
+DiverseVul,5000,3500,500,1000,5.7%,Function-level C/C++

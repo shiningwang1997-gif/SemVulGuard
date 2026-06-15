@@ -1,0 +1,4 @@
+{"id": "5001", "project": "openssl", "commit_id": "abc123", "target": 1, "func": "int ssl3_get_key_exchange(SSL *s) {\n    unsigned char *p = s->init_msg;\n    free(p);\n    use(p);\n    return 1;\n}", "cwe": ["CWE-416"], "file": "ssl/s3_pkt.c", "function_name": "ssl3_get_key_exchange"}
+{"id": "5002", "project": "openssl", "commit_id": "def456", "target": 0, "func": "int BN_bin2bn(const unsigned char *s, int len, BIGNUM *ret) {\n    return len;\n}", "cwe": [], "file": "crypto/bn/bn_lib.c", "function_name": "BN_bin2bn"}
+{"id": "5003", "project": "curl", "commit_id": "999aaa", "target": 0, "func": "int BN_bin2bn(const unsigned char *s, int len, BIGNUM *ret) {\n    return len;\n}", "cwe": [], "file": "lib/copy.c", "function_name": "BN_bin2bn"}
+{"project": "curl", "commit_id": "777bbb", "target": 1, "function": "void fmt(char *u) {\n    printf(u);\n}", "cwe": "CWE-134", "file": "lib/fmt.c", "function_name": "fmt"}

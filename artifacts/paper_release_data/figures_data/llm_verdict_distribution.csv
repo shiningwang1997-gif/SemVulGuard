@@ -1,0 +1,10 @@
+dataset,verdict_type,count,percentage
+devign,vulnerable,14,28.0
+devign,benign,23,46.0
+devign,uncertain,13,26.0
+bigvul,vulnerable,8,16.0
+bigvul,benign,33,66.0
+bigvul,uncertain,9,18.0
+diversevul,vulnerable,7,14.0
+diversevul,benign,31,62.0
+diversevul,uncertain,12,24.0

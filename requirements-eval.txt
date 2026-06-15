@@ -1,0 +1,11 @@
+# Optional evaluation-metric dependencies for SemVulGuard.
+#
+# scikit-learn is used lazily by semvulguard.eval.classification to compute
+# ROC-AUC / PR-AUC. Without it those two metrics report None; all other metrics
+# (accuracy, precision, recall, F1, MCC, ranking, localization, cost) still work.
+#
+# Install with:  pip install -r requirements-eval.txt
+
+-r requirements.txt
+
+scikit-learn>=1.1

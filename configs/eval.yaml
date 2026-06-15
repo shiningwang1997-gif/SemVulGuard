@@ -1,0 +1,8 @@
+# Evaluation harness configuration.
+eval:
+  metrics: [precision, recall, f1, roc_auc, pr_auc, topk_recall]
+  line_localization: true
+  gold_manifest: artifacts/sample_manifest.jsonl
+  findings_path: reports/findings.json
+  metrics_path: reports/metrics.json
+  report_dir: reports

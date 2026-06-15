@@ -1,0 +1,6 @@
+Policy,Description,Grid_Size,Selected_Count
+Policy A,Ranker-preserving LLM adjustment,450,3
+Policy B,Conservative benign screener,60,0
+Policy C,Candidate reranking only,240,0
+Policy D,Ranker-only baseline,1,0
+Total,All policies evaluated,1533,3

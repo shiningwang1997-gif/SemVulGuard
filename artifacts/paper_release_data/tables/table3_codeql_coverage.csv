@@ -1,0 +1,4 @@
+Dataset,Test_Samples,Alerts_Parsed,Samples_w_Alerts,Coverage_Percent,Unique_CWEs,Unique_Query_IDs
+Devign,1000,23,13,1.3%,11,7
+BigVul,1000,6,5,0.5%,4,3
+DiverseVul,1000,16,12,1.2%,9,8
